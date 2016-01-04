@@ -1,0 +1,3 @@
+﻿Code;Name;Symbol
+1231;Euro;€
+1232;Dolar;$
