@@ -1,6 +1,5 @@
 package moneyCalculator.model;
 
-import moneyCalculator.*;
 import java.util.ArrayList;
 import java.util.List;
 
