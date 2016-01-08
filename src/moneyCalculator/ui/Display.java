@@ -35,7 +35,15 @@ public class Display extends JPanel implements CurrencyDialog, MoneyDisplay, Mon
 
     @Override
     public Money getMoney() {
-        return new Money(Double.parseDouble(moneyFrom.getText()), (Currency) currenciesFrom.getSelectedItem());
+        String textMoney = moneyFrom.getText().replace(',', '.');
+        double resultMoney;
+        if (textMoney.matches("\\d+[\\.]?\\d*")){
+            resultMoney = Double.parseDouble(textMoney);
+        } else {
+            moneyFrom.setText("0.0");
+            resultMoney = 0;
+        }
+        return new Money(resultMoney, (Currency) currenciesFrom.getSelectedItem());
     }
 
     
