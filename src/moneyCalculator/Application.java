@@ -23,12 +23,13 @@ import moneyCalculator.ui.Display;
 public class Application extends JFrame {
 
     private final Map<String, Command> commands = new HashMap<>();
+    
     private final CurrencySet currencies = new CurrencySetDataBase().read();
     private final JComboBox<Currency> currenciesFrom = new JComboBox<>(currencies.currencies());
     private final JComboBox<Currency> currenciesTo = new JComboBox<>(currencies.currencies());
-    ;
-    private final JTextField moneyFrom = new JTextField("0");
+    private final JTextField moneyFrom = new JTextField("0.0");
     private final JTextField moneyTo = new JTextField();
+    
     private final Display display = new Display(currenciesFrom, currenciesTo, moneyFrom, moneyTo);
 
     public static void main(String[] args) throws Exception {
@@ -59,6 +60,7 @@ public class Application extends JFrame {
         JPanel panel = new JPanel();
         JButton button = new JButton("Calcular");
         button.addActionListener(execute("calc"));
+        button.setFocusable(false);
         panel.add(button);
         return panel;
     }
